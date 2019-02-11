@@ -88,7 +88,7 @@
                 <descriptorRefs>
                 <descriptorRef>jar-with-dependencies</descriptorRef>
                 </descriptorRefs>
-			        <finalName>tests3uploadnew-0.0.1-SNAPSHOT</finalName>
+			        <finalName>tests3uploadnew-0.0.1-SNAPSHOT-Dep</finalName>
 			        <appendAssemblyId>false</appendAssemblyId>
                  </configuration>
             </plugin>
