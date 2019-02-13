@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.ArrayList;
 
 import com.amazonaws.AmazonServiceException;
+import com.amazonaws.auth.AWSCredentials;
+import com.amazonaws.auth.EnvironmentVariableCredentialsProvider;
 import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.services.s3.AmazonS3;
 import com.amazonaws.services.s3.AmazonS3ClientBuilder;
@@ -83,10 +85,18 @@ public class Main {
 
             try {
             	
+//            	final ProfileCredentialsProvider credentialsProvider
+            	
+            	//AWSCredentials credentials 
+            	//= new EnvironmentVariableCredentialsProvider().getCredentials();
+//                = new ProfileCredentialsProvider().getCredentials();
+            	//credentials.
+            	
+            	
             	
                 AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                                         .withRegion(clientRegion)
-                                        .withCredentials(new ProfileCredentialsProvider())
+                                        .withCredentials(new EnvironmentVariableCredentialsProvider())
                                         .build();
 
                 // Create a list of ETag objects. You retrieve ETags for each object part uploaded,
