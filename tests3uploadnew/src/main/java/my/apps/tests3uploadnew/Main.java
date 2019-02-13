@@ -54,6 +54,17 @@ public class Main {
 //	                    e);
 //	        }
 
+//			String str_ret = "";
+//			UploadFile S3UploadFile = new UploadFile();
+//			try {
+//				 str_ret = S3UploadFile.putAWSS3Object("MyStudentData2.txt", "MyStudentData2.txt");
+//			} catch (Exception e1) {
+//				// TODO Auto-generated catch block
+//				e1.printStackTrace();
+//			}
+//			
+//			return;
+		
         	String clientRegion = "us-west-2";
 	        String bucketName = "mytestjavabucket" ;
 
@@ -71,6 +82,8 @@ public class Main {
             long partSize = 5 * 1024 * 1024; // Set part size to 5 MB. 
 
             try {
+            	
+            	
                 AmazonS3 s3Client = AmazonS3ClientBuilder.standard()
                                         .withRegion(clientRegion)
                                         .withCredentials(new ProfileCredentialsProvider())
@@ -122,10 +135,15 @@ public class Main {
                 // Amazon S3 couldn't be contacted for a response, or the client
                 // couldn't parse the response from Amazon S3.
                 e.printStackTrace();
-            }
+            } catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 
             System.out.println("Upload ended at: " + (System.currentTimeMillis()/1000/60)) ;        
             
+    
             
     }
+			
 }
