@@ -5,14 +5,17 @@
   <groupId>my.apps</groupId>
   <artifactId>tests3uploadnew</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-<!--   <packaging>jar</packaging> -->
+  <packaging>jar</packaging>
 
   <name>tests3uploadnew</name>
   <url>http://maven.apache.org</url>
 
-  <properties>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<start-class>my.apps.tests3uploadnew.Main</start-class>    
+    </properties>
 
   <dependencies>
     <dependency>
@@ -76,22 +79,102 @@
   
   <build>
            <plugins>
-           <plugin>
-<!--                  <groupId>maven-assembly-plugin</groupId> //commented before  -->
-                <artifactId>maven-assembly-plugin</artifactId>
-                <configuration>
+<!--             <plugin> -->
+<!--                 <groupId>org.apache.maven.plugins</groupId> -->
+<!--                 <artifactId>maven-dependency-plugin</artifactId> -->
+<!--                 <version>3.0.1</version> -->
+<!--                 <executions> -->
+<!--                     <execution> -->
+<!--                         <id>copy-dependencies</id> -->
+<!--                         <phase>package</phase> -->
+<!--                         <goals><goal>copy-dependencies</goal></goals> -->
+<!--                     </execution> -->
+<!--                 </executions> -->
+<!--             </plugin>            -->
+
+<plugin>
+    <artifactId>maven-jar-plugin</artifactId>
+    <version>3.0.2</version>
+    <executions>
+        <execution>
+            <id>default-jar</id>
+            <phase>none</phase>
+        </execution>
+    </executions>
+</plugin>
+
+<plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-assembly-plugin</artifactId>
+    <version>3.1.0</version>
+    <executions>
+        <execution>
+            <phase>package</phase>
+            <goals>
+                <goal>single</goal>
+            </goals>
+            <configuration>
+                <finalName>tests3uploadnew</finalName>
                 <archive>
-                <manifest>
-                    <mainClass>my.apps.tests3uploadnew.Main</mainClass>
-                </manifest>
+                    <manifest>
+                        <mainClass>
+                            my.apps.tests3uploadnew.Main
+                        </mainClass>
+                    </manifest>
                 </archive>
                 <descriptorRefs>
-                <descriptorRef>jar-with-dependencies</descriptorRef>
+                    <descriptorRef>jar-with-dependencies</descriptorRef>
+<!--  					<finalName>tests3uploadnew-0.0.1-SNAPSHOT</finalName>       -->
+<!--  					<appendAssemblyId>false</appendAssemblyId>               -->
                 </descriptorRefs>
-			        <finalName>tests3uploadnew-0.0.1-SNAPSHOT</finalName>
-			        <appendAssemblyId>false</appendAssemblyId>
-                 </configuration>
-            </plugin>
+            </configuration>
+        </execution>
+    </executions>
+</plugin>
+
+<!--            <plugin> -->
+<!--                 <artifactId>maven-assembly-plugin</artifactId> -->
+<!--                 <configuration> -->
+             
+<!--                 <archive> -->
+<!--                 <manifest> -->
+<!--                     <mainClass>my.apps.tests3uploadnew.Main</mainClass> -->
+<!--                 </manifest> -->
+<!--                 </archive> -->
+<!--                 <descriptorRefs> -->
+<!--                 <descriptorRef>jar-with-dependencies</descriptorRef> -->
+<!--                 </descriptorRefs> -->
+<!-- 			        <finalName>tests3uploadnew-0.0.1-SNAPSHOT</finalName> -->
+<!-- 			        <appendAssemblyId>false</appendAssemblyId> -->
+			        
+<!--             <executions> -->
+<!--                 <execution> -->
+<!--                     <phase>package</phase> -->
+<!--                     <goals> -->
+<!--                         <goal>copy-dependencies</goal> -->
+<!--                     </goals> -->
+<!--                 </execution> -->
+<!--             </executions>   			         -->
+<!--                  </configuration> -->
+<!--             </plugin> -->
+            
+            
+<!--            <plugin> -->
+<!--                 <artifactId>maven-assembly-plugin</artifactId> -->
+<!--                 <configuration> -->
+<!--                 <archive> -->
+<!--                 <manifest> -->
+<!--                     <mainClass>my.apps.tests3uploadnew.Main</mainClass> -->
+<!--                 </manifest> -->
+<!--                 </archive> -->
+<!--                 <descriptorRefs> -->
+<!--                 <descriptorRef>jar-with-dependencies</descriptorRef> -->
+<!--                 </descriptorRefs> -->
+<!-- 			        <finalName>tests3uploadnew-0.0.1-SNAPSHOT</finalName> -->
+<!-- 			        <appendAssemblyId>false</appendAssemblyId> -->
+<!--                  </configuration> -->
+<!--             </plugin> -->
+            
         </plugins>
      </build>     
 
